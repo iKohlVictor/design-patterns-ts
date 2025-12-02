@@ -26,5 +26,24 @@ A ideia desse projeto é aprofundar, entender e implementar todos os padrões de
 
 ## 4. 🏗 Estrutura
 
-(Explique os componentes do padrão.)
-Opcional: adicione um diagrama simples:
+design-patterns-typescript/
+├─ package.json # raiz com workspaces
+├─ tsconfig.base.json # config base opcional
+├─ README.md # visão geral do projeto
+└─ patterns/
+├─ strategy/
+│ ├─ package.json
+│ ├─ tsconfig.json
+│ ├─ README.md
+│ ├─ src/
+│ │ ├─ domain/
+│ │ │ └─ Order.ts
+│ │ ├─ pattern/
+│ │ │ ├─ ShippingStrategy.ts
+│ │ │ ├─ NormalShipping.ts
+│ │ │ └─ ExpressShipping.ts
+│ │ └─ client/
+│ │ └─ index.ts
+│ └─ test/
+│ └─ pattern.spec.ts
+└─ (depois você adiciona: observer/, factory-method/, etc.)
