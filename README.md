@@ -12,15 +12,13 @@ A ideia desse projeto é aprofundar, entender e implementar todos os padrões de
 
 ## 2. 🤔 Problema / Motivação
 
-(Descreva qual problema real o padrão resolve.)
-(O que aconteceria se tentasse resolver sem o padrão?)
+A principal motivação é estudar e entender todos os padrões de projetos existentes.
 
 ---
 
 ## 3. 💡 Solução do Padrão
 
-(Explique a ideia central do padrão.)
-(Como o padrão melhora o cenário descrito?)
+A ideia central desse projeto é aprofundar nos conhecimentos de padrões de projetos.
 
 ---
 
@@ -49,3 +47,31 @@ design-patterns-typescript/
    │     └─ pattern.spec.ts
    └─ (depois você adiciona: observer/, factory-method/, etc.)
 ```
+
+---
+
+## 5. 🧩 Implementação (TypeScript)
+
+A ideia da estrutura é centralizar todos os padrões de dentro de um monorepo onde posso criar uma pasta para cada padrão, considerar como sendo um projeto único. Mas também consigo rodar todos de uma única vez.
+
+---
+
+## 6. 💻 Exemplo de Uso
+
+```ts
+    nvm use 24.8.0
+    npm install
+    npm start
+```
+
+---
+
+## 7. 🧪 Testes
+
+```ts
+    npm test
+```
+
+---
+
+## 8. 🔗 Referências
