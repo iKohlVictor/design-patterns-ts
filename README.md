@@ -12,11 +12,11 @@ implementação isolada.
 
 Este repositório foi criado com o propósito de:
 
-- Aprofundar o estudo de **padrões de projeto (Design Patterns)**\
-- Implementá-los utilizando **TypeScript**\
-- Documentar teoria + prática\
-- Criar exemplos claros e reutilizáveis\
-- Desenvolver um **monorepo organizado e escalável**\
+- Aprofundar o estudo de **padrões de projeto (Design Patterns)**
+- Implementá-los utilizando **TypeScript**
+- Documentar teoria + prática
+- Criar exemplos claros e reutilizáveis
+- Desenvolver um **monorepo organizado e escalável**
 - Facilitar revisões, consultas e aprendizado contínuo
 
 ---
@@ -25,18 +25,18 @@ Este repositório foi criado com o propósito de:
 
 Entender padrões de projeto melhora:
 
-- Organização do código\
-- Flexibilidade e escalabilidade\
-- Reutilização de soluções elegantes\
-- Arquitetura e modelagem\
-- Comunicação entre desenvolvedores\
+- Organização do código
+- Flexibilidade e escalabilidade
+- Reutilização de soluções elegantes
+- Arquitetura e modelagem
+- Comunicação entre desenvolvedores
 - Preparação para entrevistas e desafios técnicos
 
 Este repositório funciona como:
 
-✔ material de estudo\
-✔ laboratório de experimentação\
-✔ portfólio técnico\
+✔ material de estudo
+✔ laboratório de experimentação
+✔ portfólio técnico
 ✔ referência para projetos futuros
 
 ---
@@ -47,10 +47,8 @@ Este repositório funciona como:
 
 Cada pasta dentro de `patterns/` contém:
 
-- Seu próprio `package.json`\
-
-- `tsconfig.json` isolado\
-
+- Seu próprio `package.json`
+- `tsconfig.json` isolado
 - Estrutura independente de pastas:
 
       src/
@@ -60,10 +58,8 @@ Cada pasta dentro de `patterns/` contém:
       test/
       README.md
 
-- Testes automatizados com **Vitest**\
-
-- Documentação completa do padrão\
-
+- Testes automatizados com **Vitest**
+- Documentação completa do padrão
 - Exemplos reais e práticos
 
 O monorepo utiliza **npm workspaces** para gerenciamento centralizado.
@@ -100,23 +96,23 @@ O monorepo utiliza **npm workspaces** para gerenciamento centralizado.
 
 ### Como funciona:
 
-- Cada padrão tem seu próprio ambiente isolado\
-- Cada implementação é totalmente independente\
+- Cada padrão tem seu próprio ambiente isolado
+- Cada implementação é totalmente independente
 - Há um README detalhado dentro de cada pasta explicando:
-  - Teoria\
-  - Estrutura\
-  - Diagrama\
-  - Implementação\
-  - Exemplo\
-  - Testes\
+  - Teoria
+  - Estrutura
+  - Diagrama
+  - Implementação
+  - Exemplo
+  - Testes
   - Reflexão
 
 ### Tecnologias usadas:
 
-- TypeScript\
-- Node.js\
-- ts-node\
-- Vitest\
+- TypeScript
+- Node.js
+- ts-node
+- Vitest
 - npm workspaces
 
 ---
@@ -174,35 +170,35 @@ Progresso global dos 23 padrões GoF + processos internos por padrão.
 
 ### Criacionais
 
-- [] Singleton\
-- [] Factory Method\
-- [] Abstract Factory\
-- [] Builder\
-- [] Prototype
+- [ ] Singleton
+- [ ] Factory Method
+- [ ] Abstract Factory
+- [ ] Builder
+- [ ] Prototype
 
 ### Estruturais
 
-- [] Adapter\
-- [] Bridge\
-- [] Composite\
-- [] Decorator\
-- [] Facade\
-- [] Flyweight\
-- [] Proxy
+- [ ] Adapter
+- [ ] Bridge
+- [ ] Composite
+- [ ] Decorator
+- [ ] Facade
+- [ ] Flyweight
+- [ ] Proxy
 
 ### Comportamentais
 
-- [] Strategy\
-- [] Observer\
-- [] Command\
-- [] State\
-- [] Template Method\
-- [] Iterator\
-- [] Chain of Responsibility\
-- [] Mediator\
-- [] Memento\
-- [] Visitor\
-- [] Interpreter
+- [ ] Strategy
+- [ ] Observer
+- [ ] Command
+- [ ] State
+- [ ] Template Method
+- [ ] Iterator
+- [ ] Chain of Responsibility
+- [ ] Mediator
+- [ ] Memento
+- [ ] Visitor
+- [ ] Interpreter
 
 ---
 
@@ -234,25 +230,25 @@ Use este checklist dentro de cada pasta:
 
 ### 📘 Documentação (`README.md` do padrão)
 
-- [ ] Escrever objetivo\
-- [ ] Descrever problema / motivação\
-- [ ] Explicar solução do padrão\
-- [ ] Criar diagrama (ASCII, imagem ou UML)\
-- [ ] Explicar estrutura de arquivos\
-- [ ] Criar exemplo de uso\
-- [ ] Escrever "Quando usar"\
-- [ ] Escrever "Quando NÃO usar"\
-- [ ] Comparar com outros padrões\
-- [ ] Adicionar referências\
+- [ ] Escrever objetivo
+- [ ] Descrever problema / motivação
+- [ ] Explicar solução do padrão
+- [ ] Criar diagrama (ASCII, imagem ou UML)
+- [ ] Explicar estrutura de arquivos
+- [ ] Criar exemplo de uso
+- [ ] Escrever "Quando usar"
+- [ ] Escrever "Quando NÃO usar"
+- [ ] Comparar com outros padrões
+- [ ] Adicionar referências
 - [ ] Escrever reflexão pessoal
 
 ---
 
 ### 🧩 Implementação
 
-- [ ] Criar interface principal do padrão\
-- [ ] Criar implementações concretas\
-- [ ] Criar classe Context (se aplicável)\
+- [ ] Criar interface principal do padrão
+- [ ] Criar implementações concretas
+- [ ] Criar classe Context (se aplicável)
 - [ ] Criar exemplos em `client/`
 - [ ] Testar execução com `npm start`
 
@@ -261,21 +257,20 @@ Use este checklist dentro de cada pasta:
 ### 🧪 Testes
 
 - [ ] Criar pasta `test/`
-- [ ] Testes unitários principais\
-- [ ] Testar variações do padrão\
-- [ ] Garantir comportamento correto\
+- [ ] Testes unitários principais
+- [ ] Testar variações do padrão
+- [ ] Garantir comportamento correto
 - [ ] Cobrir casos alternativos
 
 ---
 
 ## 9. 🔗 Referências
 
-- _Design Patterns -- GoF_\
-- Refactoring Guru: https://refactoring.guru/design-patterns\
-- _Dive Into Design Patterns_ --- Alexander Shvets\
-- Documentação oficial do TypeScript\
-- Padrões presentes em frameworks modernos (Angular, NestJS, React,
-  Spring)
+- _Design Patterns -- GoF_
+- Refactoring Guru: https://refactoring.guru/design-patterns
+- _Dive Into Design Patterns_ --- Alexander Shvets
+- Documentação oficial do TypeScript
+- Padrões presentes em frameworks modernos (Angular, NestJS, React, Spring)
 
 ---
 
