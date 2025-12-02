@@ -1,0 +1,20 @@
+{
+  "name": "@patterns/strategy",
+  "version": "1.0.0",
+  "description": "Implementation of Strategy Design Pattern",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "start": "tsx src/client/index.ts",
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2",
+    "tsx": "^4.19.2",
+    "vitest": "^2.1.8"
+  }
+}

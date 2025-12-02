@@ -1,0 +1,243 @@
+# Design Patterns TypeScript - Cursor Rules
+
+## Project Context
+
+This is a monorepo containing implementations of the 23 GoF Design Patterns in TypeScript.
+Each pattern is an independent workspace under the `patterns/` directory.
+
+## Pattern Creation Structure
+
+When creating a new design pattern, follow this exact structure:
+
+### Directory Structure
+
+```
+patterns/<pattern-name>/
+├─ package.json
+├─ tsconfig.json
+├─ README.md
+├─ src/
+│  ├─ pattern/
+│  │  ├─ index.ts                    # Main interface/abstract class
+│  │  └─ concrete-<pattern>.ts       # Concrete implementations
+│  ├─ domain/
+│  │  └─ <entity>.ts                 # Domain entities
+│  └─ client/
+│     └─ index.ts                    # Usage examples
+└─ test/
+   └─ pattern.spec.ts                # Tests with Vitest
+```
+
+### File Templates
+
+#### package.json
+
+```json
+{
+  "name": "@patterns/<pattern-name>",
+  "version": "1.0.0",
+  "description": "Implementation of <PatternName> Design Pattern",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "start": "ts-node src/client/index.ts",
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2",
+    "ts-node": "^10.9.2",
+    "vitest": "^2.1.8"
+  }
+}
+```
+
+#### tsconfig.json
+
+```json
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "test"]
+}
+```
+
+#### README.md Structure
+
+```markdown
+# <PatternName> Pattern
+
+## 🎯 Objetivo
+
+## 🤔 Problema / Motivação
+
+## 💡 Solução do Padrão
+
+## 🏗 Estrutura
+
+## 🧩 Componentes
+
+## 💻 Como Executar
+
+## 🧪 Testes
+
+## 📚 Quando Usar
+
+## ⚠️ Quando NÃO Usar
+
+## 🔗 Relação com Outros Padrões
+
+## 📖 Referências
+
+## 💭 Reflexão Pessoal
+```
+
+#### src/pattern/index.ts (Interface Template)
+
+```typescript
+/**
+ * <PatternName> Pattern - Main Interface
+ */
+export interface I<PatternName> {
+  // Define pattern methods
+}
+```
+
+#### src/client/index.ts (Usage Example)
+
+```typescript
+/**
+ * Client code demonstrating <PatternName> pattern usage
+ */
+function main() {
+  console.log("\n🎨 <PatternName> Pattern Example\n");
+
+  // Implementation example
+
+  console.log("\n✅ Pattern executed successfully!\n");
+}
+
+main();
+```
+
+#### test/pattern.spec.ts (Test Template)
+
+```typescript
+import { describe, it, expect } from 'vitest';
+import { Concrete<PatternName> } from '../src/pattern/concrete-<pattern>';
+
+describe('<PatternName> Pattern', () => {
+  it('should execute the pattern correctly', () => {
+    // Test implementation
+  });
+});
+```
+
+## Naming Conventions
+
+- **Pattern folder**: kebab-case (e.g., `strategy`, `factory-method`)
+- **Classes/Interfaces**: PascalCase (e.g., `ShippingStrategy`, `IStrategy`)
+- **Files**: kebab-case.ts (e.g., `express-shipping.ts`)
+- **Variables/Functions**: camelCase (e.g., `calculateShipping`)
+- **Constants**: UPPER_SNAKE_CASE (e.g., `MAX_RETRY_COUNT`)
+
+## Pattern Categories
+
+### Creational (5)
+
+- Singleton
+- Factory Method
+- Abstract Factory
+- Builder
+- Prototype
+
+### Structural (7)
+
+- Adapter
+- Bridge
+- Composite
+- Decorator
+- Facade
+- Flyweight
+- Proxy
+
+### Behavioral (11)
+
+- Strategy
+- Observer
+- Command
+- State
+- Template Method
+- Iterator
+- Chain of Responsibility
+- Mediator
+- Memento
+- Visitor
+- Interpreter
+
+## Code Quality Standards
+
+- Use **strict TypeScript** (no `any`)
+- Write **comprehensive tests** with Vitest
+- Follow **SOLID principles**
+- Apply **Clean Code** practices
+- Document with **JSDoc comments**
+- Keep functions **small and focused**
+- Use **meaningful names**
+
+## Commands
+
+### CLI Usage
+
+```bash
+# Create new pattern
+npm run create:pattern <pattern-name>
+
+# Example
+npm run create:pattern strategy
+```
+
+### Pattern-Specific Commands
+
+```bash
+cd patterns/<pattern-name>
+npm install      # Install dependencies
+npm start        # Run example
+npm test         # Run tests
+npm run build    # Compile TypeScript
+```
+
+### Monorepo Commands
+
+```bash
+npm test              # Run all tests
+npm run test:watch    # Watch mode
+npm run test:coverage # Coverage report
+npm run type-check    # Type checking
+```
+
+## When Asked to Create a Pattern
+
+1. Use the CLI: `npm run create:pattern <name>`
+2. Or manually create following the exact structure above
+3. Implement the pattern following GoF principles
+4. Write comprehensive tests
+5. Document everything in README.md
+6. Add real-world examples in client/index.ts
+
+## Example Prompts
+
+When user says:
+
+- "Create strategy pattern" → Use CLI or create structure
+- "Implement observer" → Use CLI or create structure
+- "Add factory method" → Use CLI or create structure
+
+Always follow the established structure and conventions.
