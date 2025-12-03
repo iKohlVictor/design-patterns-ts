@@ -99,14 +99,28 @@ Os testes cobrem:
 
 ## 📚 Quando Usar
 
-- Quando precisar ligar com diferentes cenários com a mesma finalidade dentro de uma mesma class.
-- Regras como cálculos de juros, rotas de transportes, criação de ambientes.
+- Quando você possui **diferentes variações de um mesmo algoritmo**.
+- Quando deseja **eliminar grandes cadeias de if/else ou switch-case**.
+- Quando precisa **trocar o comportamento em tempo de execução**.
+- Quando uma classe tem **muitas responsabilidades** relacionadas a regras diferentes.
+- Quando deseja aplicar o **Princípio do Aberto/Fechado (OCP)**:  
+  adicionar novos comportamentos sem modificar código existente.
+- Quando várias regras compartilham a **mesma finalidade**,  
+  mas possuem **lógicas distintas** (juros, rotas, descontos, validações etc.).
+- Quando quer **organizar comportamento por classes**, deixando cada regra isolada.
 
 ---
 
 ## ⚠️ Quando NÃO Usar
 
-_(Liste cenários onde o padrão não é recomendado)_
+- Quando existe **apenas uma única forma** de executar o algoritmo (não há variações).
+- Quando criar várias classes diferentes traria **complexidade desnecessária**.
+- Quando o comportamento é **estático** e nunca precisa mudar.
+- Quando a lógica é tão simples que **não justifica** criar várias estratégias.
+- Quando o custo cognitivo de múltiplas estratégias supera o benefício.
+- Quando a regra nunca vai ser reutilizada em outros contextos.
+- Quando o comportamento depende de **muitos dados internos da classe**,  
+  tornando difícil isolar e extrair o algoritmo.
 
 ---
 
