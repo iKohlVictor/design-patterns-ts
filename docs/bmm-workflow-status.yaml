@@ -36,18 +36,20 @@ workflow_status:
       command: "/bmad:bmm:workflows:research"
       
     product-brief:
-      status: "optional"
+      status: "docs/analysis/product-brief-design-patterns-ts-2025-12-10.md"
       agent: "analyst"
       command: "/bmad:bmm:workflows:create-product-brief"
       note: "Strategic product planning - SELECTED by user"
+      completed: "2025-12-10"
 
   # Phase 1: Planning
   phase_1_planning:
     prd:
-      status: "required"
+      status: "docs/prd.md"
       agent: "pm"
       command: "/bmad:bmm:workflows:create-prd"
       output: "Product Requirements Document with FRs and NFRs"
+      completed: "2025-12-10"
       
     create-ux-design:
       status: "conditional"
@@ -65,10 +67,11 @@ workflow_status:
       note: "Complete system design for greenfield projects"
       
     create-epics-and-stories:
-      status: "required"
+      status: "docs/epics-and-stories.md"
       agent: "pm"
       command: "/bmad:bmm:workflows:create-epics-stories"
-      note: "Break down PRD into implementable epics and stories with full context"
+      output: "8 épicos, 38 user stories com critérios de aceitação"
+      completed: "2025-12-10"
       
     test-design:
       status: "recommended"
