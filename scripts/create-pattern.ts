@@ -3,25 +3,108 @@
 import { mkdirSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
 
+/**
+ * Converts any string format to kebab-case
+ * Handles: PascalCase, camelCase, snake_case, spaces, mixed formats
+ */
+function toKebabCase(input: string): string {
+  return input
+    // Insert hyphen before uppercase letters (for PascalCase/camelCase)
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    // Insert hyphen between letters and numbers
+    .replace(/([a-zA-Z])(\d)/g, "$1-$2")
+    .replace(/(\d)([a-zA-Z])/g, "$1-$2")
+    // Replace underscores and spaces with hyphens
+    .replace(/[_\s]+/g, "-")
+    // Remove any characters that aren't letters, numbers, or hyphens
+    .replace(/[^a-zA-Z0-9-]/g, "")
+    // Convert to lowercase
+    .toLowerCase()
+    // Remove consecutive hyphens
+    .replace(/-+/g, "-")
+    // Remove leading/trailing hyphens
+    .replace(/^-|-$/g, "");
+}
+
+/**
+ * Converts kebab-case to PascalCase
+ */
+function toPascalCase(kebab: string): string {
+  return kebab
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join("");
+}
+
+/**
+ * Validates if input is already valid kebab-case
+ */
+function isValidKebabCase(input: string): boolean {
+  return /^[a-z][a-z0-9]*(-[a-z0-9]+)*$/.test(input);
+}
+
+/**
+ * Checks for invalid characters in input
+ */
+function hasInvalidCharacters(input: string): boolean {
+  return /[^a-zA-Z0-9_\s-]/.test(input);
+}
+
+// Main execution
 const patternName = process.argv[2];
 
 if (!patternName) {
   console.error("❌ Error: Pattern name is required!");
-  console.log("Usage: npm run create:pattern <pattern-name>");
-  console.log("Example: npm run create:pattern strategy");
+  console.log("\nUsage: npm run create:pattern <pattern-name>");
+  console.log("\nExamples:");
+  console.log("  npm run create:pattern strategy");
+  console.log("  npm run create:pattern factory-method");
+  console.log("  npm run create:pattern abstract-factory");
+  console.log("\nAccepted formats (auto-converted to kebab-case):");
+  console.log("  • kebab-case:  factory-method");
+  console.log("  • PascalCase:  FactoryMethod");
+  console.log("  • camelCase:   factoryMethod");
+  console.log("  • snake_case:  factory_method");
+  console.log("  • With spaces: Factory Method");
   process.exit(1);
 }
 
-const patternNameKebab = patternName.toLowerCase().replace(/\s+/g, "-");
-const patternNamePascal = patternNameKebab
-  .split("-")
-  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-  .join("");
+// Check for invalid characters
+if (hasInvalidCharacters(patternName)) {
+  console.error("❌ Error: Pattern name contains invalid characters!");
+  console.log("\n   Only letters, numbers, hyphens, underscores, and spaces are allowed.");
+  const suggestion = toKebabCase(patternName);
+  if (suggestion) {
+    console.log(`\n💡 Suggestion: Try "${suggestion}" instead.`);
+  }
+  process.exit(1);
+}
+
+// Convert to kebab-case
+const patternNameKebab = toKebabCase(patternName);
+
+// Validate result
+if (!patternNameKebab) {
+  console.error("❌ Error: Could not convert pattern name to valid format!");
+  console.log("\n   Pattern name must contain at least one letter.");
+  process.exit(1);
+}
+
+// Show conversion if input wasn't already kebab-case
+if (!isValidKebabCase(patternName)) {
+  console.log(`🔄 Converting "${patternName}" → "${patternNameKebab}"\n`);
+}
+
+const patternNamePascal = toPascalCase(patternNameKebab);
 
 const basePath = join(process.cwd(), "patterns", patternNameKebab);
 
 if (existsSync(basePath)) {
   console.error(`❌ Error: Pattern "${patternNameKebab}" already exists!`);
+  console.log(`\n   Directory: ./patterns/${patternNameKebab}/`);
+  console.log("\n💡 Suggestions:");
+  console.log(`   • Use a different name`);
+  console.log(`   • Delete the existing pattern first if you want to recreate it`);
   process.exit(1);
 }
 
